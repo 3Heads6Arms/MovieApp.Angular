@@ -19,10 +19,9 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
+<body layout="column">
   <toolbar></toolbar>
-  <md-button aria-label="Click Me" class="md-raised md-accent"> Click Me </md-button>
-  <div ng-view></div>
+  <div ng-view flex layout="column"></div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -33,11 +32,15 @@
   <script src="bower_components/angular-messages/angular-messages.js"></script>
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
+  <script src="app.constants.js"></script>
+  <script src="common/ellipsis.filter.js"></script>
+  <script src="common/infinite-scroll.directive.js"></script>
   <script src="toolbar/toolbar.module.js"></script>
   <script src="toolbar/toolbar.component.js"></script>
   <script src="services/services.module.js"></script>
-  <script src="services/services.constants.js"></script>
   <script src="services/discover.service.js"></script>
+  <script src="discover/discover.module.js"></script>
+  <script src="discover/discover.component.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

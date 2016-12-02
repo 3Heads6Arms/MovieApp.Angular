@@ -4,12 +4,24 @@ angular
         templateUrl: 'discover/discover.template.html',
         controller: [
             'discover',
-            function (discover) {
-                var self = this; 
-                discover.discoverMovies()
+            '$scope',
+            function (discover, $scope) {
+                var self = this,
+                    currentPageNumber = 1;
+
+                discover.discoverMovies(currentPageNumber)
                     .then(function (movies) {
-                        self.movies = movies;
-                    })
+                        self.movies = movies
+                    });
+
+
+                this.discoverMoreMovies = function () {
+                    discover.discoverMovies(++currentPageNumber)
+                        .then(function (movies) {
+                            debugger;
+                            self.movies.concat(movies);
+                        });
+                }
             }
         ]
     })

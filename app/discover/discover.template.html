@@ -1,0 +1,15 @@
+<md-content layout="row" layout-wrap infinite-scroll="$ctrl.discoverMoreMovies()" flex style="overflow:auto" md-scroll-y>
+    <div ng-repeat="movie in $ctrl.movies" flex-xs="50" flex-sm="33" flex-md="25" flex-gt-md="20">
+        <md-card>
+            <img ng-src="{{movie.poster_path}}" class="md-card-image" alt="image caption">
+            <md-card-content>
+                <h3>{{movie.title}}</h3>
+                <p>{{movie.overview|ellipsis:150}}</p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Action 1</md-button>
+                <md-button>Action 2</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

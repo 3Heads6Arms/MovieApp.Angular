@@ -12,4 +12,8 @@ angular
                 .primaryPalette('brown')
                 .accentPalette('indigo')
                 .dark();
+
+                $routeProvider.when('/', {
+                    template: '<discover flex layout="row"></discover>'
+                });
         }]);

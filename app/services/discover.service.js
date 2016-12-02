@@ -1,14 +1,15 @@
 angular
-    .module('movie.discover')
+    .module('movie.services')
     .factory('discover', [
         '$http',
         '$q',
         'SERVER_URL',
         'IMAGE_SERVER_URL',
         'API_KEY',
-        function ($http, $q, SERVER_URL, IMAGE_SERVER_URL, API_KEY) {
-            function discoverMovies() {
-                var url = SERVER_URL + 'discover/movie' + '?api_key=' + API_KEY + '&page=1';
+        'IMAGE_SIZES',
+        function ($http, $q, SERVER_URL, IMAGE_SERVER_URL, API_KEY, IMAGE_SIZES) {
+            function discoverMovies(pageNumber) {
+                var url = SERVER_URL + 'discover/movie' + '?api_key=' + API_KEY + '&page=' + pageNumber;
                 var deferred = $q.defer();
                 $http.get(url)
                     .then(function (response) {
@@ -23,6 +24,7 @@ angular
                                         });
                                     });
                                     movie.genres = movieGenres;
+                                    movie.poster_path = IMAGE_SERVER_URL + IMAGE_SIZES.poster.w342 + movie.poster_path;
                                 });
 
                                 deferred.resolve(movies);

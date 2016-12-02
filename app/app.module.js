@@ -6,5 +6,5 @@ angular.module('movie', [
   'ngMaterial',
   'movie.toolbar',
   'movie.services',
-  'movie.discover',
+  'movie.discover'
 ]);
