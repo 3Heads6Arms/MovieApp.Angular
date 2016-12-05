@@ -1,15 +1,22 @@
-<md-content layout="row" layout-wrap infinite-scroll="$ctrl.discoverMoreMovies()" flex style="overflow:auto" md-scroll-y>
+<md-content layout-wrap infinite-scroll="$ctrl.discoverMoreMovies()" class="md-padding" layout-xs="column" layout="row" layout-wrap>
     <div ng-repeat="movie in $ctrl.movies" flex-xs="50" flex-sm="33" flex-md="25" flex-gt-md="20">
         <md-card>
             <img ng-src="{{movie.poster_path}}" class="md-card-image" alt="image caption">
-            <md-card-content>
-                <h3>{{movie.title}}</h3>
-                <p>{{movie.overview|ellipsis:150}}</p>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{movie.title}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="start center">
                 <md-button>Action 1</md-button>
                 <md-button>Action 2</md-button>
             </md-card-actions>
+            <md-card-content>
+                <p>{{movie.overview|ellipsis:150}}</p>
+            </md-card-content>
         </md-card>
+    </div>
+    <div layout-align="space-around" layout="row" layout-margin flex="100">
+        <md-progress-circular class="md-accent" ng-disabled="!$ctrl.showLoader"></md-progress-circular>
     </div>
 </md-content>

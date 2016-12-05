@@ -14,6 +14,6 @@ angular
                 .dark();
 
                 $routeProvider.when('/', {
-                    template: '<discover flex layout="row"></discover>'
+                    template: '<discover></discover>'
                 });
         }]);

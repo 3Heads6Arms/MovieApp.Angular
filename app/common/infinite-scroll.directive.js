@@ -1,19 +1,31 @@
 angular
     .module('movie')
     .directive('infiniteScroll', [
-        function () {
+        '$window',
+        function ($window) {
+            var lastCall = 0,
+                INFINITE_LOADING_DELAY = 500;
+
             return {
                 restrict: 'A',
                 link: function (scope, element, attrs) {
-                    var rootElement = element[0];
+                    var windowElement = angular.element($window);
 
-                    element.on('scroll', function () {
-                        if (rootElement.scrollTop + rootElement.offsetHeight >= rootElement.scrollHeight) {
-                            if (!scope.$$phase) {
+                    windowElement.on('scroll', function () {
+                        var now = new Date(),
+                            loadAvailable = now - lastCall > INFINITE_LOADING_DELAY;
+
+                        if (windowElement.height() + windowElement.scrollTop() >= element.height()
+                            && loadAvailable) {
+                            if (!scope.$$phase && !scope.$ctrl.isLoading) {
+                                scope.$ctrl.showLoader = true;
+                                scope.$ctrl.isLoading = true;
                                 scope.$apply(attrs.infiniteScroll);
+                                lastCall = now;
                             }
                         }
                     });
                 }
             };
         }]);
+

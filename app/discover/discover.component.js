@@ -18,8 +18,11 @@ angular
                 this.discoverMoreMovies = function () {
                     discover.discoverMovies(++currentPageNumber)
                         .then(function (movies) {
-                            debugger;
-                            self.movies.concat(movies);
+                            movies.forEach(function (movie) {
+                                self.movies.push(movie);
+                            });
+                            self.isLoading = false;
+                            self.showLoader = true;
                         });
                 }
             }
