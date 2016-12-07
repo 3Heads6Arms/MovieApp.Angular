@@ -11,6 +11,7 @@
     "angular-route": "^1.5.9",
     "angular-material": "^1.1.1",
     "angular-cookies": "^1.5.9",
-    "jquery": "^3.1.1"
+    "jquery": "^3.1.1",
+    "system.js": "^0.19.41"
   }
 }

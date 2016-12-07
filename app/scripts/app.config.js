@@ -15,3 +15,4 @@ angular
             template: '<discover></discover>'
         });
     }]);
+//# sourceMappingURL=app.config.js.map

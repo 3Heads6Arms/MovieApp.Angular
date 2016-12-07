@@ -5,3 +5,4 @@ angular.module("movie", [
     'movie.services',
     'movie.discover'
 ]);
+//# sourceMappingURL=app.module.js.map
