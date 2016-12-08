@@ -1,6 +1,6 @@
 import { DiscoverService } from './../services/DiscoverService';
 
-export class DiscoverController {
+export class DiscoverController implements ng.IComponentController {
     static $inject: string[] = ['discover', '$scope']
 
     currentPageNumber: number;

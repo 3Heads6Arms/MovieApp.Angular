@@ -1,4 +1,5 @@
 "use strict";
+var InfiniteScrollDirective_1 = require('./../directives/InfiniteScrollDirective');
 var movie_config_1 = require('./../configs/movie.config');
 var movieApp;
 (function (movieApp) {
@@ -11,6 +12,7 @@ var movieApp;
         'movie.discover'
     ])
         .config(movie_config_1.MovieConfig)
+        .directive('infiniteScroll', InfiniteScrollDirective_1.InfiniteScrollDirective)
         .constant('SERVER_URL', 'https://api.themoviedb.org/3/')
         .constant('IMAGE_SERVER_URL', 'https://image.tmdb.org/t/p/')
         .constant('API_KEY', '5d70e3447b10f44c50bdf7e55e436fea')

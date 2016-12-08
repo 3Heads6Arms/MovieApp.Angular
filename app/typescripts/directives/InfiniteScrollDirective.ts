@@ -1,15 +1,20 @@
-export class InfiniteScrollDirective implements ng.IDirectiveFactory {
+export class InfiniteScrollDirective implements ng.IDirective {
     static $inject: string[] = ['$window'];
-    restrict: string;
     private lastCall: Date;
     private INFINITE_LOADING_DELAY: number;
+    restrict: string;
 
     constructor(private $window) {
         this.lastCall = new Date();
         this.INFINITE_LOADING_DELAY = 500;
     }
 
-    link(scope, element, attrs): void {
+
+    somefunc(...args: any[]): ng.IDirective | ng.IDirectiveLinkFn {
+        return null;
+    }
+
+    link(scope, element, attrs): ng.IDirective | ng.IDirectiveLinkFn {
         let windowElement = angular.element(this.$window);
         let self = this;
 
@@ -27,6 +32,8 @@ export class InfiniteScrollDirective implements ng.IDirectiveFactory {
                 }
             }
         });
+
+        return null;
     }
 }
 
