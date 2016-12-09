@@ -1,2 +1,3 @@
-angular
-    .module('movie.services', []);
+namespace movieApp {
+    angular.module('movie.services', []);
+}

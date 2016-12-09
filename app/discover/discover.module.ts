@@ -1,1 +1,3 @@
-angular.module('movie.discover', []);
+namespace movieApp {
+    angular.module('movie.discover', []);
+}
