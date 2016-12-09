@@ -1,1 +1,3 @@
-angular.module('movie.toolbar', []);
+namespace movieApp {
+    angular.module('movie.toolbar', []);
+}
