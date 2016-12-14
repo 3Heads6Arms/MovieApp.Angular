@@ -27,7 +27,7 @@ namespace movieApp {
 
     class DiscoverComponent implements ng.IComponentOptions {
         templateUrl: string;
-        controller: any;
+        controller: ng.Injectable<ng.IControllerConstructor>;
 
         constructor() {
             this.templateUrl = 'discover/discover.template.html';

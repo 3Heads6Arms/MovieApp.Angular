@@ -1,11 +1,16 @@
 <md-toolbar>
- <md-toolbar>
+  <md-toolbar>
 
     <div class="md-toolbar-tools">
       <span>Movie I</span>
 
       <!-- fill up the space between left and right area -->
-      <span flex></span>
+      <md-input-container md-no-float flex class="searchBar md-icon-left md-block">
+        <md-icon md-svg-src="img/ic_search_white_36px.svg" aria-label="search"></md-icon>
+        <input name="search" type="text" ng-model="$ctrl.searchValue" ng-change="$ctrl.searchValueChange()" placeholder="Search"
+          aria-label="search">
+      </md-input-container>
+
     </div>
 
   </md-toolbar>

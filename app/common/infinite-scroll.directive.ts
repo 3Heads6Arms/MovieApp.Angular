@@ -1,7 +1,7 @@
 namespace movieApp {
 
-    infiniteScrollDirective.$inject = ['$window'];
-    function infiniteScrollDirective($window: ng.IWindowService): ng.IDirective {
+    infiniteScrollDirective.$inject = ['$window', '$timeout'];
+    function infiniteScrollDirective($window: ng.IWindowService, $timeout: ng.ITimeoutService): ng.IDirective {
         let lastCall = new Date(),
             INFINITE_LOADING_DELAY = 500,
             factory: ng.IDirective,
@@ -20,7 +20,7 @@ namespace movieApp {
                     delay = loadAvailable ? 0 : 1000;
 
                 if (windowElement.height() + windowElement.scrollTop() >= element.height()) {
-                    setTimeout(() => {
+                    $timeout(() => {
                         if (!scope.$$phase && !scope['$ctrl'].isLoading) {
                             scope['$ctrl'].showLoader = true;
                             scope['$ctrl'].isLoading = true;
