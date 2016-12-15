@@ -1,7 +1,7 @@
 namespace movieApp {
     class SearchHubService {
         private subscribers: Function[];
-        constructor() { 
+        constructor() {
             this.subscribers = [];
         }
 
@@ -10,11 +10,10 @@ namespace movieApp {
         }
 
         invoke(searchValue: string) {
-            console.log(searchValue);
             this.subscribers.forEach(callback => callback(searchValue));
         }
     }
-
+    
     angular.module('movie.services')
-        .service('searchHub', SearchHubService);
+        .service('searchHub', SearchHubService)
 }

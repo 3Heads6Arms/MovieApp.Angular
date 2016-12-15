@@ -4,15 +4,30 @@ namespace movieApp {
         movies: any[];
         isLoading: boolean;
         showLoader: boolean;
+        onSearch: Function;
 
-        static $inject = ['$scope', 'discoverService']
-        constructor(private $scope: ng.IScope, private discoverService) {
+        static $inject = ['$scope', 'discoverService', 'searchHub', 'searchService']
+        constructor(
+            private $scope: ng.IScope,
+            private discoverService,
+            private searchHub,
+            private searchService) {
             this.isLoading = true;
             this.showLoader = false;
             this.currentPageNumber = 0;
             this.movies = [];
+            let _self = this;
+
+            this.onSearch = function (value: string) {
+                _self.searchService.searchMovies(value)
+                    .then(movies => {
+                    _self.movies = [];
+                    _self.movies = movies;
+                    });
+            }
 
             this.discoverMoreMovies();
+            this.searchHub.subscribe(this.onSearch);
         }
 
         discoverMoreMovies(): void {
